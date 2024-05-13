@@ -38,7 +38,7 @@ const Testimonials = () => {
 
   const fetchTestimonials = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/getTestimonials');
+      const response = await fetch('http://13.126.196.198:5000/api/getTestimonials');
       const data = await response.json();
       setReviews([...reviews, ...data]);
     } catch (error) {
@@ -70,7 +70,7 @@ const Testimonials = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/api/submitTestimonial', {
+      const response = await fetch('http://13.126.196.198:5000/api/submitTestimonial', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
