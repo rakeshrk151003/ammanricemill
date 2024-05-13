@@ -36,7 +36,7 @@ const Contact = () => {
       }
 
       // Send data to backend server
-      const serverResponse = await fetch('http://localhost:5000/api/submitForm', {
+      const serverResponse = await fetch('http://13.126.196.198:5000/api/submitForm', {
         method: 'POST',
         body: formData,
       });
