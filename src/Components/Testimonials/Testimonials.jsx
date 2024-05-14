@@ -69,25 +69,40 @@ const Testimonials = () => {
       text: formData.get('text')
     };
 
-    try {
-      const response = await fetch('https://ricemillbackend.onrender.com/api/submitTestimonial', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newReview)
-      });
+    // Perform validation to check if the review contains negative words
+    if (!containsNegativeWords(newReview.text)) {
+      try {
+        const response = await fetch('https://ricemillbackend.onrender.com/api/submitTestimonial', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(newReview)
+        });
 
-      if (!response.ok) {
-        throw new Error('Failed to submit testimonial');
+        if (!response.ok) {
+          throw new Error('Failed to submit testimonial');
+        }
+
+        setReviews([...reviews, newReview]);
+        setShowForm(false); // Hide the form after submission
+        event.target.reset();
+      } catch (error) {
+        console.error('Error submitting testimonial:', error);
       }
-
-      setReviews([...reviews, newReview]);
-      setShowForm(false); // Hide the form after submission
-      event.target.reset();
-    } catch (error) {
-      console.error('Error submitting testimonial:', error);
+    } else {
+      alert("Please provide a review without negative words."); // Show an alert for negative review
     }
+  };
+
+  // Function to check if the review contains negative words
+  const containsNegativeWords = (reviewText) => {
+    // List of negative keywords
+    const negativeKeywords = ["bad", "poor", "disappointing", "terrible", "awful"];
+    // Convert review text to lowercase for case-insensitive comparison
+    reviewText = reviewText.toLowerCase();
+    // Check if the review text contains any negative keywords
+    return negativeKeywords.some(keyword => reviewText.includes(keyword));
   };
 
   return (

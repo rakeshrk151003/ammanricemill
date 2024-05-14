@@ -19,7 +19,7 @@
 .play-icon{
   width:60px;
   position:absolute;
-  top:325%;
+  top:335%;
   margin-left: -5%;
   transform: translate(-200%,100%);
   cursor:pointer;

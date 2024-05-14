@@ -17,6 +17,11 @@
   color:#88ba6c;
 
 }
+.product button{
+  margin-top:10px;
+  font-size: medium;
+  text-align: center;
+}
 .product p{
   color:#276203;
 }
