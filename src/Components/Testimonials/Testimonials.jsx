@@ -98,7 +98,7 @@ const Testimonials = () => {
   // Function to check if the review contains negative words
   const containsNegativeWords = (reviewText) => {
     // List of negative keywords
-    const negativeKeywords = ["bad", "poor", "disappointing", "terrible", "awful", "not", "don't", "doesn't", "didn't" ,'blame", "stress","disappointment","betrayal"];
+    const negativeKeywords = ["bad", "poor", "disappointing", "terrible", "awful", "not", "don't", "doesn't", "didn't" ,"blame", "stress","disappointment","betrayal"];
     // Convert review text to lowercase for case-insensitive comparison
     reviewText = reviewText.toLowerCase();
     // Check if the review text contains any negative keywords
